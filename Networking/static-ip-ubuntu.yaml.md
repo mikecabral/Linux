@@ -9,12 +9,12 @@ network:
   ethernets:
     eth0:
       addresses:
-        - 192.168.50.239/24
+        - 192.168.x.x/24
       nameservers:
         addresses: [192.168.50.1]
       routes:
         - to: default
-          via: 192.168.50.1
+          via: 192.168.x.x # NETWORK GATEWAY
   version: 2
 ```
 

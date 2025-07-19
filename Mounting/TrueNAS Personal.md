@@ -7,17 +7,17 @@ domain=WORKGROUP
 
 ### Mount
 ```bash
-sudo mount -t cifs -o credentials=/home/mike/.vault/.smbcred //192.168.50.154/Jellyfin /media/Jellyfin
-sudo mount -t cifs -o credentials=/home/mike/.vault/.smbcred //192.168.50.154/Jellyfin2 /media/Jellyfin2
-sudo mount -t cifs -o credentials=/home/mike/.vault/.smbcred //192.168.50.154/Jellyfin2/MUSIC /media/Music
+sudo mount -t cifs -o credentials=/home/user/.vault/.smbcred //192.168.x.x/Jellyfin /media/Jellyfin
+sudo mount -t cifs -o credentials=/home/user/.vault/.smbcred //192.168.x.x/Jellyfin2 /media/Jellyfin2
+sudo mount -t cifs -o credentials=/home/user/.vault/.smbcred //192.168.x.x/Jellyfin2/MUSIC /media/Music
 ```
 
 
 ### Fstab
 ```bash
-//192.168.50.154/Jellyfin /media/Jellyfin cifs credentials=/home/mike/.vault/.smbcred,uid=1000,gid=1000,vers=3.0 0 0
-//192.168.50.154/Jellyfin2 /media/Jellyfin2 cifs credentials=/home/mike/.vault/.smbcred,uid=1000,gid=1000,vers=3.0 0 0
-//192.168.50.154/Jellyfin2/Music /media/Music cifs credentials=/home/mike/.vault/.smbcred,uid=1000,gid=1000,vers=3.0 0 0
+//192.168.x.x/Jellyfin /media/Jellyfin cifs credentials=/home/user/.vault/.smbcred,uid=1000,gid=1000,vers=3.0 0 0
+//192.168.x.x/Jellyfin2 /media/Jellyfin2 cifs credentials=/home/user/.vault/.smbcred,uid=1000,gid=1000,vers=3.0 0 0
+//192.168.x.x/Jellyfin2/Music /media/Music cifs credentials=/home/user/.vault/.smbcred,uid=1000,gid=1000,vers=3.0 0 0
 ```
 
 ### Cifs Driver for Kubernetes
@@ -67,7 +67,7 @@ spec:
     - ReadWriteMany
   storageClassName: data-jellyfin
   nfs:
-    server: 192.168.50.154
+    server: 192.168.x.x
     path: "/mnt/nas-jelly/Jellyfin"
 ```
 
@@ -100,7 +100,7 @@ spec:
     - ReadWriteMany
   storageClassName: data-jellyfin2
   nfs:
-    server: 192.168.50.154
+    server: 192.168.x.x
     path: "/mnt/nas-jelly/Jellyfin2"
 ```
 
@@ -134,7 +134,7 @@ spec:
     - ReadWriteMany
   storageClassName: data-music
   nfs:
-    server: 192.168.50.154
+    server: 192.168.x.x
     path: "/mnt/nas-jelly/Jellyfin2/Music"
 ```
 

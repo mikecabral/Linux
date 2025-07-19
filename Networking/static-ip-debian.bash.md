@@ -5,9 +5,9 @@
 #allow-hotplug ens192
 #auto ens192
 iface ens192 inet static
-address 192.168.50.160
+address 192.168.x.x
 netmask 255.255.255.0
-gateway 192.168.50.1
+gateway 192.168.x.x
 dns-nameservers 8.8.8.8
 ```
 
