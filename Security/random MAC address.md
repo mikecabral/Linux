@@ -1,0 +1,1 @@
+https://raddle.me/wiki/MacAddressRandomization
